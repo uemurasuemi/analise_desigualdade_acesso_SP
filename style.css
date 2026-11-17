@@ -1,0 +1,61 @@
+:root{font-family:Inter,Segoe UI,Arial,sans-serif;color:#17273e;background:#f3f6fb}*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden}header{background:#12253f;color:#fff;padding:19px 3.2%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-shrink:0}.eyebrow{font-size:10px;letter-spacing:2.5px;color:#7bc7d4;font-weight:800}h1{font-size:clamp(19px,2.1vw,28px);margin:5px 0}header p{margin:0;color:#b8c8dc;font-size:12px}.headerRight{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #4a617c;border-radius:20px;padding:8px 12px;font-size:10px;color:#d6e2f1}nav{display:flex;align-items:center;padding:10px 3.2%;background:#fff;border-bottom:1px solid #e0e7ef;gap:8px;flex-shrink:0}.tab{border:0;background:transparent;padding:11px 16px;color:#66768a;font-weight:700;cursor:pointer;border-radius:7px;font-size:12px}.tab.active{background:#e7f4f6;color:#08788c}.navRight{margin-left:auto;display:flex;gap:14px}label{font-size:11px;color:#64748b;font-weight:700}select,input{padding:8px;border:1px solid #dce4ed;border-radius:7px;background:#fff;color:#263950;max-width:185px}main{padding:16px 3.2%;min-height:0;flex:1}.page{display:none;height:100%;min-height:0;flex-direction:column;gap:13px}.page.active{display:flex}.intro{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-shrink:0}.intro h2{margin:0 0 4px;font-size:19px}.intro p,.sub{margin:0;color:#75859a;font-size:11px}.muted{font-size:11px;color:#8794a7}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;flex-shrink:0}.kpi,.panel{background:white;border:1px solid #e5eaf1;border-radius:12px;box-shadow:0 3px 10px #1a35510a}.kpi{padding:12px 16px}.kpi small{font-size:11px;color:#708097}.kpi strong{display:block;font-size:clamp(19px,2vw,27px);margin-top:5px}.kpi span{font-size:10px;color:#8b98a7}.layout{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;flex:1;min-height:0}.panel{padding:14px 16px;min-height:0;overflow:hidden;display:flex;flex-direction:column}.panel h3{font-size:13px;margin:0 0 8px}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:8px}.panelHead select{font-size:11px}.chart{flex:1;min-height:0;position:relative}.chart svg{width:100%;height:100%;display:block}.axis{fill:#8796a7;font-size:10px}.gridline{stroke:#e9eef4;stroke-width:1}.legend{fill:#56677d;font-size:11px}.barLabel{fill:#53657b;font-size:10px}.tablePanel{flex:1}.tableWrap{overflow:auto;flex:1}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:11px;text-align:left;border-bottom:1px solid #edf1f5}th{position:sticky;top:0;background:#f7f9fc;color:#687b92}td:nth-child(n+4){font-variant-numeric:tabular-nums}.notes{max-height:135px;overflow:auto;flex-shrink:0}.notes p{font-size:11px;line-height:1.45;color:#69798b;margin:3px 0 7px}.action{border:0;background:#117b91;color:#fff;border-radius:7px;padding:10px 14px;cursor:pointer;font-weight:700}footer{padding:8px 3.2%;display:flex;justify-content:space-between;color:#8997a9;font-size:10px;flex-shrink:0}@media(max-width:900px){body{overflow:auto;height:auto;min-height:100vh}header,.intro,nav{flex-wrap:wrap}.navRight{margin-left:0}.page{height:auto}.layout{grid-template-columns:1fr;grid-template-rows:repeat(4,280px)}.kpis{grid-template-columns:repeat(2,1fr)}.chart{min-height:180px}main{min-height:850px}}
+
+.introControls{display:flex;align-items:center;gap:14px;flex-shrink:0}.introControls label{display:flex;align-items:center;gap:7px}.pearsonNote{font-size:11px;line-height:1.4;color:#566a82;margin:0 3px;flex-shrink:0}footer a{color:inherit;text-decoration:underline;text-underline-offset:2px}footer{gap:12px;flex-wrap:wrap}footer span{line-height:1.35}
+
+/* Ajustes de legibilidade e encaixe dos gráficos */
+:root{--chart-ink:#344a64}
+header{padding-top:16px;padding-bottom:16px}
+main{padding-top:13px;padding-bottom:10px}
+.page{gap:11px}
+.kpi{padding:13px 17px}
+.layout{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
+.panel{padding:15px 18px}
+.chart{display:flex;align-items:stretch;justify-content:center;overflow:hidden}
+.chart svg{width:100%;height:100%;max-width:100%;overflow:visible}
+.axis{font-size:12px;fill:#60758d}
+.legend{font-size:12px;fill:#435a73}
+.barLabel{font-size:14px;fill:var(--chart-ink);font-weight:500}
+.barValue{font-size:13px;fill:var(--chart-ink);font-weight:700}
+.gridline{stroke:#e4ebf2}
+.panel h3{font-size:14px}
+.panel .sub{line-height:1.5}
+.pearsonNote{line-height:1.55}
+.tableWrap{min-height:0}
+.notes{max-height:155px}
+footer{padding-top:6px;padding-bottom:7px}
+@media(min-width:901px){.page .layout{grid-template-rows:minmax(0,1fr) minmax(0,1fr)}.chart{min-height:155px}.page .layout .panel{min-height:0}}
+@media(max-width:900px){.chart{min-height:225px}.page .layout{grid-template-rows:repeat(3,minmax(250px,auto))}.panel{min-height:260px}.tablePanel{min-height:450px}}
+
+/* Correção definitiva: SVG nunca é reduzido para caber na altura do card.
+   A rolagem ocorre DENTRO do gráfico, preservando as abas sem rolagem geral. */
+@media(min-width:901px){
+ .page .layout{grid-template-rows:minmax(0,1fr) minmax(0,1fr)}
+ .panel{min-height:0;overflow:hidden}
+ .chart{display:block;overflow:auto;min-height:0;flex:1 1 0;scrollbar-width:thin;scrollbar-color:#b7c9d6 transparent}
+ .chart svg{display:block;width:100%;min-width:650px;height:auto;min-height:270px;max-width:none;max-height:none;flex:none;overflow:visible}
+ #historico svg,#dispersao svg{min-height:300px}
+ #regioes svg,#ranking svg,#rendaAlta svg,#rendaBaixa svg{min-height:290px}
+ .layout .panel{padding-bottom:10px}
+}
+@media(max-width:900px){.chart{display:block;overflow:auto}.chart svg{min-width:650px;width:100%;height:auto;min-height:270px;max-width:none}}
+
+/* VERSÃO FINAL: gráficos inteiros, rolagem apenas da página */
+html { min-height: 100%; overflow-x: hidden; }
+body { height: auto !important; min-height: 100vh; overflow-x: hidden !important; overflow-y: auto !important; }
+main { flex: 1 0 auto; min-height: auto !important; }
+.page, .page.active { height: auto !important; min-height: 0; }
+.layout, .page .layout { flex: none !important; min-height: 0 !important; grid-template-rows: auto auto !important; align-items: stretch; }
+.panel, .layout .panel { height: auto !important; min-height: 0 !important; overflow: visible !important; }
+.chart, .page .chart { display: block !important; height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; flex: none !important; width: 100% !important; }
+.chart svg, .page .chart svg { display: block !important; width: 100% !important; min-width: 0 !important; height: auto !important; min-height: 0 !important; max-height: none !important; max-width: 100% !important; overflow: visible !important; }
+#historico svg, #dispersao svg { aspect-ratio: 640 / 245; }
+#regioes svg, #ranking svg, #rendaAlta svg, #rendaBaixa svg { aspect-ratio: auto; }
+.tablePanel { flex: none !important; }
+.tableWrap { max-height: 55vh; overflow: auto !important; }
+.notes { max-height: none !important; overflow: visible !important; }
+footer { margin-top: auto; }
+@media (max-width: 900px) {
+ .layout, .page .layout { grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: auto !important; }
+ .chart, .page .chart { min-height: 0 !important; }
+ .panel { min-height: 0 !important; }
+}

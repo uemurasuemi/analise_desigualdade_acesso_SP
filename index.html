@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Desigualdade Educacional | São Paulo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">ESCOLARIDADE X RENDA • SÃO PAULO</span>
+        <h1>Desigualdade no acesso à educação</h1>
+        <p>Fluxo escolar, permanência e contexto socioeconômico · 2021–2025</p>
+      </div>
+    </header>
+    <nav>
+      <button class="tab active" data-tab="panorama">
+        01 · Panorama educacional</button
+      ><button class="tab" data-tab="renda">02 · Renda e educação</button
+      ><button class="tab" data-tab="analitico">03 · Analítico</button>
+    </nav>
+    <main>
+      <section id="panorama" class="page active">
+        <div class="intro">
+          <div>
+            <h2>Panorama do fluxo escolar</h2>
+            <p>
+              Comparativo entre Estado, capital e regiões administrativas
+              identificáveis da capital.
+            </p>
+          </div>
+          <div class="introControls">
+            <label
+              >Ano
+              <select id="ano"></select></label
+            ><label
+              >Etapa
+              <select id="etapa">
+                <option>Etapa 1</option>
+                <option>Etapa 2</option>
+                <option>Etapa 3</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <div id="kpis" class="kpis"></div>
+        <div class="layout">
+          <article class="panel wide">
+            <div class="panelHead">
+              <h3>Evolução histórica · Estado × Capital</h3>
+              <select id="metrica">
+                <option value="aprovacao">Aprovação</option>
+                <option value="abandono">Abandono</option>
+                <option value="reprovacao">Reprovação</option>
+              </select>
+            </div>
+            <div id="historico" class="chart"></div>
+          </article>
+          <article class="panel">
+            <h3>Comparativo regional</h3>
+            <p class="sub">
+              Diretorias com identificação Norte, Sul, Leste e Oeste
+            </p>
+            <div id="regioes" class="chart"></div>
+          </article>
+          <article class="panel">
+            <div class="panelHead">
+              <h3>Ranking · maiores taxas</h3>
+              <select id="rankMetric">
+                <option value="aprovacao">Aprovação</option>
+                <option value="abandono">Abandono</option>
+                <option value="reprovacao">Reprovação</option>
+              </select>
+            </div>
+            <p class="sub">
+              Recortes geográficos disponíveis · médias por grupo
+            </p>
+            <div id="ranking" class="chart"></div>
+          </article>
+        </div>
+      </section>
+      <section id="renda" class="page">
+        <div class="intro">
+          <div>
+            <h2>Renda e desigualdade educacional</h2>
+            <p>
+              Remuneração média do emprego formal por distrito e abandono no
+              ensino fundamental municipal.
+            </p>
+          </div>
+          <label
+            >Ano de renda
+            <select id="anoRenda"></select
+          ></label>
+        </div>
+        <div id="rendaKpis" class="kpis"></div>
+        <p class="pearsonNote">
+          <strong>Como interpretar Pearson?</strong> O coeficiente varia de -1 a
+          +1 e mede a associação linear entre renda e abandono escolar. Valores
+          próximos de 0 indicam relação linear fraca; um valor negativo indica
+          que rendas maiores tendem a acompanhar taxas de abandono menores. A
+          associação não demonstra causalidade.
+        </p>
+        <div class="layout">
+          <article class="panel wide">
+            <h3>Renda × abandono escolar municipal por distrito</h3>
+            <p class="sub">
+              Cada ponto é um distrito. Disponível apenas quando ambos os
+              indicadores constam na mesma base.
+            </p>
+            <div id="dispersao" class="chart"></div>
+          </article>
+          <article class="panel">
+            <h3>10 distritos com maior remuneração</h3>
+            <div id="rendaAlta" class="chart"></div>
+          </article>
+          <article class="panel">
+            <h3>10 distritos com menor remuneração</h3>
+            <div id="rendaBaixa" class="chart"></div>
+          </article>
+        </div>
+      </section>
+      <section id="analitico" class="page">
+        <div class="intro">
+          <div>
+            <h2>Análise detalhada</h2>
+            <p>Indicadores consolidados por recorte geográfico, ano e etapa.</p>
+          </div>
+          <button id="exportar" class="action">Exportar CSV</button>
+        </div>
+        <article class="panel tablePanel">
+          <div class="panelHead">
+            <h3>Base analítica de fluxo escolar</h3>
+            <input id="busca" placeholder="Filtrar região ou ano..." />
+          </div>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ano</th>
+                  <th>Recorte</th>
+                  <th>Etapa</th>
+                  <th>Aprovação</th>
+                  <th>Reprovação</th>
+                  <th>Abandono</th>
+                  <th>Registros válidos</th>
+                </tr>
+              </thead>
+              <tbody id="tabela"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="panel notes">
+          <h3>Notas metodológicas</h3>
+          <p>
+            As taxas são médias simples das escolas com APR, REP e ABA válidas
+            (soma entre 95% e 105%), e não médias ponderadas pelo número de
+            matrículas. Os códigos 1, 2 e 3 foram preservados como etapas porque
+            a correspondência exata deve ser validada no dicionário da fonte. A
+            classificação por zona considera apenas diretorias da capital cujo
+            nome contém Norte, Sul, Leste ou Oeste; não é uma geocodificação de
+            escolas por endereço. Portanto, não representa todas as escolas de
+            cada zona.
+          </p>
+          <p>
+            Renda do Mapa da Desigualdade representa remuneração do emprego
+            formal no distrito, não renda familiar nem classe social do
+            estudante. A correlação distrital de 2025 utiliza abandono escolar
+            municipal informado no próprio Mapa, e não o fluxo escolar estadual
+            por escola. Associação estatística não comprova causalidade. Dados
+            de frequência escolar e evasão longitudinal não estão disponíveis
+            nos CSVs anexados.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <span
+        >Fontes dos dados:
+        <a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-escolar?utm_source=chatgpt.com" target="_blank" rel="noopener"
+          >Secretaria da Educação de SP (Fluxo Escolar por Escola, 2021–2025)</a
+        >
+        ·
+        <a
+          href="https://www.nossasaopaulo.org.br/"
+          target="_blank"
+          rel="noopener"
+          >Rede Nossa São Paulo (Mapa da Desigualdade, 2021–2025)</a
+        ></span
+      ><span
+        >Contexto:
+        <a
+          href="https://cidades.ibge.gov.br/brasil/sp/sao-paulo/panorama"
+          target="_blank"
+          rel="noopener"
+          >IBGE</a
+        >
+        ·
+        <a
+          href="https://produtos.seade.gov.br/produtos/msp/ren/ren2_001.htm"
+          target="_blank"
+          rel="noopener"
+          >Seade</a
+        >
+        ·
+        <a
+          href="https://www.cnnbrasil.com.br/nacional/sudeste/sp/mapa-da-desigualdade-veja-ranking-da-qualidade-de-vida-na-grande-sp/"
+          target="_blank"
+          rel="noopener"
+          >CNN Brasil</a
+        ></span
+      >
+    </footer>
+    <script src="dados/fluxo.js"></script>
+    <script src="dados/renda.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
